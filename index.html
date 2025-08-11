@@ -6,6 +6,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Fylo landing page with dark theme and features grid</title>
   <style>
+     html {
+        scroll-behavior: smooth;
+      }
     .attribution {
       font-size: 11px;
       text-align: center;
@@ -497,7 +500,7 @@
         height: auto;
         margin-top: 2rem;
       }
-      
+     
       .features .box .about1 h2 {
         font-size: 18px;
       }
@@ -684,9 +687,9 @@
       <div class="container-nav">
         <img src="./images/logo.svg" alt="">
         <ul class="nav-items">
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">Sign In</a></li>
+          <li><a href="#feature">Features</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#signin">Sign In</a></li>
         </ul>
       </div>
     </nav>
@@ -707,7 +710,7 @@
       </div>
     </div>
   </header>
-  <main class="main">
+  <main class="main" id="feature">
     <section class="first">
       <div class="features">
         <div class="row1">
@@ -764,7 +767,7 @@
         </div>
       </div>
     </section>
-    <section class="idk">
+    <section class="idk" id="team">
       <img src="./images/illustration-stay-productive.png" alt="">
       <div class="about2">
         <h2>
@@ -831,7 +834,7 @@
         </div>
       </div>
     </section>
-    <section class="access">
+    <section class="access" id="signin">
       <div class="access-about">
         <div class="title">
           <h2>
