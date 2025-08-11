@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Fylo landing page with dark theme and features grid</title>
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #1c2230;
+    }
+    .navbar {
+      background-color: #1c2230;
+      max-width: 2100px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container-nav {
+      display: flex;
+      padding: 1.5rem 0;
+      justify-content: space-between;
+      max-width: 1600px;
+      width: 100%;
+    }
+    .nav-items {
+      display: flex;
+      gap: 50px;
+      font-size: 25px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-items a {
+      text-decoration: none;
+      color: #989fa9;
+      transition: 0.3s;
+    }
+    .nav-items a:hover {
+      color: white;
+      border-bottom: 2px solid white;
+    }
+    .hero {
+      justify-content: center;
+      display: flex;
+      height: 1200px;
+    }
+    .hero .img2 {
+      position: absolute;
+      width: 1900px;
+      height: 550px;
+      top: 750px;
+      z-index: -1;
+    }
+    .hero-intro {
+      padding-top: 20px;
+    }
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+    .about h2 {
+      margin-top: 30px;
+      font-size: 42px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+    }
+    .about p {
+      font-size: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: #aaaeb6;
+    }
+    .about button {
+      width: 300px;
+      height: 55px;
+      border-radius: 25px;
+      border: none;
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(#4ec6d4, #4dc2d3, #45bad1, #41afd0);
+      transition: 1s;
+    }
+    button:hover {
+      background: linear-gradient(#8cdae4, #88dce4, #8cdae4);
+    }
+    .main {
+      height: 1900px;
+      background-color: #181f2b;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .features {
+      width: 100%;
+      max-width: 1500px;
+      height: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -150px;
+      gap: 200px;
+    }
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .features .box .about1 h2 {
+      font-size: 25px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+    }
+    .features .box .about1 p {
+      font-size: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: #8c9194;
+    }
+    .about1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+    .idk {
+      margin-top: 100px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    .about2 {
+      display: flex;
+      align-items: flex-start;
+      justify-self: flex-start;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .about2 h2 {
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      font-size: 40px;
+    }
+    .about2 p {
+      color: #aaaeb6;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .about2 .pp {
+      color: #528c8e;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-bottom: 2px solid #528c8e;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cards {
+      margin-left: 50px;
+      margin-top: 150px;
+      display: flex;
+      gap: 50px;
+      z-index: 999;
+    }
+    .card {
+      width: 465px;
+      height: 220px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 20px;
+      background-color: #21293c;
+    }
+    .for-image img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .for-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .for-image h5 {
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .for-image p {
+      line-height: 1.8;
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .card h2 {
+      font-size: 20px;
+      color: #9ca5b4;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .jinni-img {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: 2600px;
+      right: 1610px;
+    }
+    .access {
+      margin-top: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1c2230;
+    }
+    .access-about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 800px;
+      height: 250px;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+    .title h2 {
+      font-size: 35px;
+      font-weight: 600;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: white;
+    }
+    .title p {
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #9ca5b4;
+    }
+    .check-input {
+      display: flex;
+      gap: 30px;
+    }
+    .check-input input {
+      width: 450px;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-left: 32px;
+      border-radius: 30px;
+      border: none;
+    }
+    .check-input button {
+      width: 200px;
+      height: 50px;
+      border-radius: 30px;
+      border: none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: white;
+      background: linear-gradient(#4ec6d4, #4dc2d3, #45bad1, #41afd0);
+    }
+    .footers {
+      padding: 16rem 24rem;
+      background-color: #0c1524;
+      border: 2px solid black;
+      height: 300px;
+      display: flex;
+      gap: 100px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .location {
+      display: flex;
+      gap: 10px;
+    }
+    .email {
+      display: flex;
+      gap: 20px;
+      color: #9ca5b4;
+    }
+    .telephone {
+      display: flex;
+      gap: 20px;
+      color: #9ca5b4;
+    }
+    .about4 {
+      margin-top: 80px;
+      gap: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .location img {
+      width: 20px;
+      height: 20px;
+    }
+    .footer-lists {
+      margin-top: 150px;
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+    }
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-left: 10px;
+    }
+    .social-icons .icon {
+      display: inline-grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 8px;
+      background: transparent;
+      margin-top: 30px;
+      transition: transform .18s ease, background .18s ease;
+      text-decoration: none;
+    }
+    .social-icons .icon svg {
+      width: 40px;
+      height: 40px;
+      fill: #111;
+      transition: fill .18s ease;
+    }
+    .social-icons .icon:hover {
+      transform: translateY(-3px);
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .social-icons .icon[aria-label="Facebook"]:hover svg {
+      fill: #1877F2;
+    }
+    .social-icons .icon[aria-label="Twitter"]:hover svg {
+      fill: #1DA1F2;
+    }
+    .social-icons .icon[aria-label="Instagram"]:hover svg {
+      fill: #E1306C;
+    }
+    .social-icons .icon:focus {
+      outline: 3px solid rgba(0, 0, 0, 0.12);
+      outline-offset: 2px;
+    }
+    .footer-list {
+      list-style: none;
+      color: #9ca5b4;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .footer-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    .location p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #9ca5b4;
+      transition: 0.3s;
+    }
+    .footer-list li {
+      transition: 0.3s;
+    }
+    .footer-list li:hover {
+      color: white;
+    }
+    .telephone p {
+      transition: 0.3s;
+    }
+    .email p {
+      transition: 0.3s;
+    }
+    .telephone p:hover {
+      color: white;
+    }
+    .email p:hover {
+      color: white;
+    }
+    .location p:hover {
+      color: white;
+    }
+    .incorrect {
+      position: absolute;
+      margin-top: 60px;
+      margin-left: 30px;
+      color: red;
+      font-size: 13px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    /* FIXED MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .container-nav {
+        padding: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .container-nav img {
+        width: 80px;
+        height: 30px;
+      }
+      
+      .nav-items {
+        font-size: 14px;
+        gap: 20px;
+      }
+      
+      .hero {
+        height: auto;
+        padding: 2rem 1rem;
+      }
+      
+      .hero .img2 {
+        position: relative;
+        width: 560px;
+        height: auto;
+        margin-left: -80px;
+        top: 35px;
+        margin-top: 2rem;
+      }
+      
+      .hero-intro img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+      .hero-intro {
+        text-align: center;
+        margin-left: -460px;
+      }
+      .about h2 {
+        font-size: 24px;
+        line-height: 1.3;
+      }
+      
+      .about p {
+        font-size: 13px;
+        padding: 0 1rem;
+      }
+      
+      .about button {
+        width: 250px;
+        height: 50px;
+        font-size: 16px;
+      }
+      .footer-main {
+        align-items: center;
+        justify-content: center;
+      }
+      .main {
+        height: auto;
+        padding: 2rem 1rem;
+      }
+      
+      .features {
+        flex-direction: column;
+        gap: 50px;
+        height: auto;
+        margin-top: 2rem;
+      }
+      
+      .features .box .about1 h2 {
+        font-size: 18px;
+      }
+      
+      .features .box .about1 p {
+        font-size: 14px;
+      }
+      
+      .idk {
+        flex-direction: column;
+        margin-top: 50px;
+        gap: 30px;
+        padding: 0 1rem;
+      }
+      
+      .idk img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+       .about2 {
+        align-items: center;
+        justify-content: center;
+       }      
+      .about2 h2 {
+        font-size: 20px;
+        text-align: center;
+      }
+      
+      .about2 p {
+        font-size: 10px;
+        text-align: center;
+      }
+      
+      .about2 .pp {
+        font-size: 14px;
+        justify-content: center;
+      }
+      .about2 .pp img {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .cards {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 50px;
+        align-items: center;
+        padding: 0 1rem;
+      }
+      
+      .card {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        padding: 1.5rem;
+      }
+      
+      .jinni-img {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 2rem auto;
+        display: none;        
+      }
+      
+      .access-about {
+        width: 100%;
+        padding: 0 1rem;
+        gap: 10px;
+      }
+      
+      .title h2 {
+        font-size: 24px;
+      }
+      
+      .title p {
+        font-size: 10px;
+      }
+      
+      .check-input {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .check-input input {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .check-input button {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .footers {
+        padding: 4rem 2rem;
+        flex-direction: column;
+        gap: 30px;
+        height: auto;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .footer-lists {
+        margin-top: 30px;
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .social-icons {
+        margin-left: 0;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-items {
+        font-size: 12px;
+        gap: 15px;
+      }
+      
+      .container-nav img {
+        width: 70px;
+        height: 25px;
+      }
+      
+      .about h2 {
+        font-size: 20px;
+      }
+      
+      .about p {
+        font-size: 14px;
+      }
+      
+      .about button {
+        width: 200px;
+        height: 45px;
+        font-size: 14px;
+      }
+      
+      .features .box .about1 h2 {
+        font-size: 16px;
+      }
+      
+      .features .box .about1 p {
+        font-size: 12px;
+      }
+      
+      .about2 h2 {
+        font-size: 20px;
+      }
+      
+      .about2 p {
+        font-size: 14px;
+      }
+      
+      .card {
+        padding: 1rem;
+      }
+      
+      .card h2 {
+        font-size: 16px;
+      }
+      
+      .title h2 {
+        font-size: 20px;
+      }
+      
+      .footers {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container-nav">
+        <img src="./images/logo.svg" alt="">
+        <ul class="nav-items">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Sign In</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="hero">
+      <img src="./images/bg-curvy-desktop.svg" alt="" class="img2">
+      <div class="hero-intro">
+        <img src="./images/illustration-intro.png" alt="">
+        <div class="about">
+          <h2>
+            All your files in one secure location,<br>accessible anywhere.
+          </h2>
+          <p>
+            Fylo stores all your most important files in one secure location.<br>Access them wherever
+            you need, share and collaborate with,<br>friends family, and co-workers.
+          </p>
+          <button>Get Started</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <section class="first">
+      <div class="features">
+        <div class="row1">
+          <div class="box">
+            <div class="about1">
+              <img src="./images/icon-access-anywhere.svg" alt="">
+              <h2>Access your files, anywhere</h2>
+              <p>
+                The ability to use a smartphone, tablet, or computer<br>to access your account means your
+                files follow you<br>everywhere.
+              </p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="box">
+            <div class="about1">
+              <img src="./images/icon-any-file.svg" alt="">
+              <h2>Store any type of file</h2>
+              <p>Whether you're sharing holidays photos or work<br>documents, Fylo has you covered allowing for all
+                file<br>types to be securely stored and shared.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="box">
+            <div class="about1">
+              <img src="./images/icon-security.svg" alt="">
+              <h2>Security you can trust</h2>
+              <p>2-factor authentication and user-controlled encryption are<br>just a couple of the security
+                features we allow to help<br>secure your files.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="box">
+            <div class="about1">
+              <img src="./images/icon-collaboration.svg" alt="">
+              <h2>Real-time collaboration</h2>
+              <p>Securely share files and folders with friends, family and <br>colleagues for live collaboration.
+                No email attachments<br>required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="idk">
+      <img src="./images/illustration-stay-productive.png" alt="">
+      <div class="about2">
+        <h2>
+          Stay productive,<br>wherever you are
+        </h2>
+        <p>
+          Never let location be an issue when accessing your files. Fylo has you<br>covered for all of your file
+          storage needs.
+          <br><br>
+          Securely share files and folders with friends, family and colleagues for live<br>collaboration. No email
+          attachments required.
+        </p>
+        <p class="pp">
+          See how Fylo works
+          <img src="./images/icon-arrow.svg" alt="">
+        </p>
+      </div>
+      <img src="./images/bg-quotes.png" alt="" class="jinni-img">
+    </section>
+    <section class="cards">
+      <div class="card">
+        <h2>Fylo has improved our team productivity by<br>an order of magnitude. Since making the<br>switch our team has
+          become a well-oiled<br>collaboration machine.</h2>
+        <div class="for-image">
+          <img src="./images/profile-1.jpg" alt="">
+          <div class="user-data">
+            <h5>
+              Satish Patel
+            </h5>
+            <p>
+              Founder & CEO, Huddle
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Fylo has improved our team productivity by<br>an order of magnitude. Since making the<br>switch our team has
+          become a well-oiled<br>collaboration machine.</h2>
+        <div class="for-image">
+          <img src="./images/profile-2.jpg" alt="">
+          <div class="user-data">
+            <h5>
+              Bruce McKenzie
+            </h5>
+            <p>
+              Founder & CEO, Huddle
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Fylo has improved our team productivity by<br>an order of magnitude. Since making the<br>switch our team has
+          become a well-oiled<br>collaboration machine.</h2>
+        <div class="for-image">
+          <img src="./images/profile-3.jpg" alt="">
+          <div class="user-data">
+            <h5>
+              Iva Boyd
+            </h5>
+            <p>
+              Founder & CEO, Huddle
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="access">
+      <div class="access-about">
+        <div class="title">
+          <h2>
+            Get early access today
+          </h2>
+          <p>
+            It only takes a minute to sign up and our free starter tier is extremely generous. If you have any<br>
+            questions, our support team would be happy to help you.
+          </p>
+        </div>
+        <div class="check-input">
+          <input type="email" placeholder="example@gmail.com" class="input-for-value">
+          <button class="btn">Get Started For Free</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footers">
+    <div class="footer-main">
+      <img src="./images/logo.svg" alt="">
+      <div class="location">
+        <img src="./images/icon-location.svg" alt="">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor<br>incididunt ut labore et
+          dolore magna aliqua
+        </p>
+      </div>
+    </div>
+    <div class="about4">
+      <div class="telephone">
+        <img src="./images/icon-phone.svg" alt="">
+        <p>+1-543-123-4567</p>
+      </div>
+      <div class="email">
+        <img src="./images/icon-email.svg" alt="">
+        <p>
+          example@fylo.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-lists">
+      <ul class="footer-list">
+        <li>About Us</li>
+        <li>Jobs</li>
+        <li>Press</li>
+        <li>Blog</li>
+      </ul>
+      <ul class="footer-list">
+        <li>Contact Us</li>
+        <li>Terms</li>
+        <li>Privacy</li>
+      </ul>
+    </div>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.41c0-2.33 1.39-3.61 3.53-3.61.99 0 2.02.18 2.02.18v2.22h-1.14c-1.12 0-1.47.7-1.47 1.42v1.71h2.5l-.4 2.9h-2.1v7.03C18.34 21.2 22 17.06 22 12.07z" />
+        </svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M22 5.92c-.63.28-1.3.48-2 .56.72-.43 1.27-1.1 1.53-1.9-.68.4-1.43.7-2.23.86C18.7 4.7 17.77 4 16.7 4c-1.48 0-2.68 1.2-2.68 2.68 0 .21.02.41.07.6C11.7 7.1 9.03 5.7 7.1 3.5c-.23.4-.36.86-.36 1.36 0 .94.48 1.77 1.2 2.26-.56-.02-1.09-.17-1.55-.43v.04c0 1.3.92 2.38 2.14 2.63-.22.06-.45.08-.69.08-.17 0-.34-.02-.5-.05.34 1.06 1.32 1.84 2.48 1.86C9 15.1 7.7 15.7 6.27 15.7c-.26 0-.52-.02-.77-.06 1.44.92 3.15 1.46 4.98 1.46 5.97 0 9.25-4.95 9.25-9.25v-.42c.63-.46 1.17-1.03 1.6-1.68-.58.26-1.2.43-1.84.51z" />
+        </svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2A4.8 4.8 0 1 0 16.8 13 4.81 4.81 0 0 0 12 8.2zm6.4-2.4a1.12 1.12 0 1 0 1.12 1.12A1.12 1.12 0 0 0 18.4 5.8zM12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5z" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
